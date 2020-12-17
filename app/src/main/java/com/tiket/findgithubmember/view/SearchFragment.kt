@@ -27,7 +27,7 @@ open class SearchFragment : Fragment() {
 
     open var disposable: Disposable? = null
     private val user by lazy { Api.create() }
-    private val delay: Long = 1200
+    private val delay: Long = 1300
     private val perPage: Int = 30
     private var adapter: UserListAdapter? = null
     private var totalPage: Int = 0
@@ -126,7 +126,7 @@ open class SearchFragment : Fragment() {
 
                         Handler().postDelayed(
                             { doSearch(binding.textSearch.text.toString(), currentPage, perPage) },
-                            40000
+                            50000
                         )
 
                         doStartTick()
@@ -137,7 +137,7 @@ open class SearchFragment : Fragment() {
     }
 
     private val handlerSearch = Runnable {
-        if (System.currentTimeMillis() > lastTextChanged + delay - 500 && binding.textSearch.text.toString()
+        if (System.currentTimeMillis() > lastTextChanged + delay - 400 && binding.textSearch.text.toString()
                 .isNotEmpty()
         ) {
             doClearList()

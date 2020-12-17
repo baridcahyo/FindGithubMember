@@ -8,6 +8,7 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentTransaction
 import com.tiket.findgithubmember.databinding.ActivityMainSearchBinding
 import com.tiket.findgithubmember.view.SearchFragment
 
@@ -25,6 +26,8 @@ class ActivityMainSearch : AppCompatActivity() {
             if (savedInstanceState == null) {
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.root_container, searchFragment)
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                    .show(searchFragment)
                     .commit()
             }
             binding.layContent.visibility = View.GONE
